@@ -1,5 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
+import {SidebarModule} from 'primeng/sidebar';
+import { FormsModule } from '@angular/forms';
+import {MenubarModule} from 'primeng/menubar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {InputTextModule} from 'primeng/inputtext';
+import {ButtonModule} from 'primeng/button';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +19,9 @@ import { HomeComponent } from './page/home/home.component';
 import { CourseComponent } from './page/course/course.component';
 import { PostsComponent } from './page/posts/posts.component';
 import { AboutComponent } from './page/about/about.component';
+import { RecentNewComponent } from './page/home/recent-new/recent-new.component';
+import { FollowComponent } from './page/home/follow/follow.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,13 +32,24 @@ import { AboutComponent } from './page/about/about.component';
     HomeComponent,
     CourseComponent,
     PostsComponent,
-    AboutComponent
+    AboutComponent,
+    RecentNewComponent,
+    FollowComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SidebarModule,
+    FormsModule,
+    MenubarModule,
+    BrowserAnimationsModule,
+    InputTextModule,
+    ButtonModule,
+    FontAwesomeModule,
+    // QuillModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

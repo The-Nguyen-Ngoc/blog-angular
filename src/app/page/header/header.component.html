@@ -1,42 +1,60 @@
-<header class="tech-header header">
-  <div class="container-fluid">
-    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top
-      bg-inverse">
-      <button class="navbar-toggler navbar-toggler-right" type="button"
-        data-toggle="collapse" data-target="#navbarCollapse"
-        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle
-        navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="tech-index.html"><img
-          src="images/version/tech-logo.png" alt=""></a>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="['active-nav']" [routerLink]="''"><span>Trang chủ</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="['active-nav']" [routerLink]="'course'"><span>Khoá học</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="['active-nav']" [routerLink]="'posts'"><span>Bài viết</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLinkActive]="['active-nav']" [routerLink]="'about'"><span>Tác giả</span></a>
-          </li>
-        </ul>
-        <ul class="navbar-nav mr-2">
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa fa-rss"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa fa-android"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa fa-apple"></i></a>
-          </li>
-        </ul>
+<div class="menu-bar">
+  <nav>
+      <div class="logo" *ngIf="deviceInfo.deviceType == 'desktop'">
+          <a href="/ecommer/home">
+              <img src="assets/img/logo-web.png" height="59px"
+                  style="border-radius: 30px;" />
+          </a>
       </div>
-    </nav>
-  </div><!-- end container-fluid -->
-</header><!-- end market-header -->
+      <ul *ngIf="deviceInfo.deviceType == 'desktop'">
+          <li *ngFor="let item of navs"><a [routerLinkActive]="['active-nav']"
+                  [routerLink]="[item.link]"><i></i>&ensp;{{item.name}}</a></li>
+          <div>
+              <span class="p-input-icon-left">
+                  <input type="text" pInputText [(ngModel)]="textSearch"
+                      placeholder="Search">
+                  <i class="pi pi-search"></i>
+              </span>
+          </div>
+      </ul>
+      <div *ngIf="deviceInfo.deviceType == 'mobile'">
+          <div class="mobile">
+              <div class="logo-mobile">
+                  <a href="/ecommer/home">
+                      <img src="assets/img/logo-web.png" style="height:
+                          70px;border-radius: 30px;" />
+                  </a>
+              </div>
+              <div class="search-mobile">
+                  <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                      <input style="width: 150px;" type="text" pInputText
+                          [(ngModel)]="textSearch" placeholder="Search">
+                  </span>
+                  <div class="side-bar-mobile">
+                      <p-sidebar [(visible)]="displayMenuMobile"
+                          position="top" class="side-bar-show">
+                          <div>
+                              <div class="item-nav-mb" *ngFor="let item of
+                                  navs"><a [routerLinkActive]="['active-nav']"
+                                      (click)="showHideMenuMobile()"
+                                      [routerLink]="[item.link]"><i
+                                          ></i>&ensp;{{item.name}}</a></div>
+                          </div>
+                      </p-sidebar>
+
+                      <i (click)="showHideMenuMobile()" class="pi
+                          pi-align-justify" style=" color: red;
+                          padding: 3px;
+                          background: beige;
+                          border-radius: 3px;"></i>
+                  </div>
+              </div>
+
+
+
+          </div>
+
+      </div>
+  </nav>
+</div>

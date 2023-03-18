@@ -64,8 +64,8 @@
     .blog-list .blog-meta.big-meta h4 {
         background-color: #ffffff;
         margin-left: 0;
-        margin-top: 1rem;
-        padding: 1rem 0;
+        /* margin-top: 1rem; */
+        /* padding: 1rem 0; */
     }
 }
 

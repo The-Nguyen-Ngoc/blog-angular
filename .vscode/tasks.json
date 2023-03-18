@@ -3,40 +3,22 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "type": "npm",
-      "script": "start",
-      "isBackground": true,
-      "problemMatcher": {
-        "owner": "typescript",
-        "pattern": "$tsc",
-        "background": {
-          "activeOnStart": true,
-          "beginsPattern": {
-            "regexp": "(.*?)"
-          },
-          "endsPattern": {
-            "regexp": "bundle generation complete"
-          }
-        }
-      }
-    },
-    {
-      "type": "npm",
-      "script": "test",
-      "isBackground": true,
-      "problemMatcher": {
-        "owner": "typescript",
-        "pattern": "$tsc",
-        "background": {
-          "activeOnStart": true,
-          "beginsPattern": {
-            "regexp": "(.*?)"
-          },
-          "endsPattern": {
-            "regexp": "bundle generation complete"
-          }
-        }
-      }
-    }
+      "label": "build-dev",
+      "type": "shell",
+      "command": "env ng build --base-href=/blog/ --watch --output-path=dist/blog-angular",
+      "group": "build",
+      "problemMatcher": [
+          "$msCompile"
+      ]
+  },
+  {
+      "label": "build-production",
+      "type": "shell",
+      "command": "ng build --base-href=/ --configuration production",
+      "group": "build",
+      "problemMatcher": [
+          "$msCompile"
+      ]
+  },
   ]
 }
