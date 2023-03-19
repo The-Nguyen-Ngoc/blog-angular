@@ -1,8 +1,8 @@
 <div class="blog-box row">
-  <div class="col-md-4" *ngIf="deviceInfo.deviceType == 'desktop'">
+  <div class="col-md-4" style="top: 13px;" *ngIf="deviceInfo.deviceType == 'desktop'">
     <div class="post-media">
       <a href="tech-single.html" title="">
-        <img src="assets/upload/blog_10.jpg" height="170px" alt=""
+        <img src="assets/upload/blog_10.jpg" alt=""
           class="img-fluid">
         <div class="hovereffect"></div>
       </a>
@@ -10,7 +10,7 @@
   </div><!-- end col -->
 
   <div class="blog-meta big-meta col-md-8">
-    <a href="tech-single.html" title=""><div [innerHTML]="recent.title"></div>
+    <a [routerLink]="['/detail-post/', recent.id]"><div [innerHTML]="recent.title"></div>
       <!-- <h4>{{recent.title}}</h4> -->
       <div style="color: black;" [innerHTML]="recent.header"></div>
       
@@ -19,7 +19,7 @@
     <div class="bottom">
       <small class="firstsmall text-bot">
         <a class="bg-orange"
-          title="">{{recent.category}}</a>
+          title="">{{convertNameCategory(recent.categoryId)}}</a>
       </small>
       <small class="text-bot"><a title="">{{formatDate(recent.dateCreate)}}</a></small>
       <small class="text-bot"><a title="">Create by: {{recent.userCreate}}</a></small>

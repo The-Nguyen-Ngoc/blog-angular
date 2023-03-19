@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { RecentService } from 'src/app/service/recent.service';
+import { BlogService } from 'src/app/service/blog.service';
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,23 +11,53 @@ export class HomeComponent implements OnInit {
   public deviceInfo: any;
   public listRecent = [];
   public page = 1;
-  constructor(private deviceService: DeviceDetectorService, private recentService: RecentService) { }
+  public pageSize = 5;
+  public totalPage = 0;
+  public totalE = 0;
+ public listCategory: any;
+
+  constructor(private deviceService: DeviceDetectorService, private blogService: BlogService, private router: Router,
+    private route: ActivatedRoute,) { }
 
   ngOnInit() {
     this.deviceInfo = this.deviceService.getDeviceInfo();
-    this.callApiListRecent();
+    this.blogService.getListCategory().subscribe(res => {
+      this.listCategory = res;
+    })
+    this.route.queryParams.subscribe(params => {
+      const page = params['page'];
+      if (page) {
+        this.page = page;
+        this.callApiListRecent(page);
+
+      } else {
+        this.redirectToPageWithParams(this.page.toString())
+      }
+    });
   }
-  callApiListRecent(){
-    this.recentService.getListRecent(this.page - 1).subscribe(res => {
+  callApiListRecent(page: number) {
+    this.blogService.getListRecent(page, this.pageSize).subscribe((res)=> {
       console.log(res)
-      this.listRecent = res
-    }, error => {
-      console.log(error.status);
+      this.listRecent = res.recentDtoList;
+      this.totalPage = res.totalPages;
+      this.totalE = res.totalElement;
     })
   }
-  nextPage(){
-    this.page ++;
-    this.callApiListRecent();
+  redirectToPageWithParams(page: string) {
+    const params = { page: page };
+    this.router.navigate(['home'], { queryParams: params });
+  }
+  nextPage() {
+    if (this.page < this.totalPage) {
+      this.page++;
+      this.redirectToPageWithParams(this.page.toString());
+    }
+  }
+  previousPage() {
+    if (this.page > 1) {
+      this.page--
+      this.redirectToPageWithParams(this.page.toString());
+    }
 
   }
 

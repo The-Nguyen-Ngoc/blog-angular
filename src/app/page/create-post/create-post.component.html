@@ -1,0 +1,27 @@
+<div class="body-about">
+  <h1>Create Post</h1>
+  <br>
+  <select [(ngModel)]="selectedOption">
+    <option *ngFor="let option of listCategory" [value]="option['id']">{{option['name']}}</option>
+  </select>
+  <br>
+  <br>
+  <br>
+  <h3>Người tạo</h3>
+  <input [(ngModel)]="userCreate" type="text" />
+  <br>
+  <br>
+  <h3>Tiêu Đề</h3>
+  <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="title"></angular-editor>
+  <br>
+  <br>
+  <h3>Mở đầu</h3>
+  <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="header"></angular-editor>
+  <br>
+  <br>
+  <h3>Thân bài</h3>
+  <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="body"></angular-editor>
+  <br>
+  <br>
+  <p-button type="button" label="Submit" (click)="savePost()"></p-button>
+</div>

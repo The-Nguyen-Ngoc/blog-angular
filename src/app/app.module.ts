@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,9 @@ import { PostsComponent } from './page/posts/posts.component';
 import { AboutComponent } from './page/about/about.component';
 import { RecentNewComponent } from './page/home/recent-new/recent-new.component';
 import { FollowComponent } from './page/home/follow/follow.component';
+import { CreatePostComponent } from './page/create-post/create-post.component';
+import { DetailPostComponent } from './page/home/detail-post/detail-post.component';
+
 import { DatePipe } from '@angular/common';
 
 @NgModule({
@@ -34,7 +38,9 @@ import { DatePipe } from '@angular/common';
     PostsComponent,
     AboutComponent,
     RecentNewComponent,
-    FollowComponent
+    FollowComponent,
+    CreatePostComponent,
+    DetailPostComponent
   ],
   imports: [
     HttpClientModule,
@@ -47,7 +53,7 @@ import { DatePipe } from '@angular/common';
     InputTextModule,
     ButtonModule,
     FontAwesomeModule,
-    // QuillModule
+    AngularEditorModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
