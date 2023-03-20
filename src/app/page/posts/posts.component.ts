@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogService } from 'src/app/service/blog.service';
 
 @Component({
   selector: 'app-posts',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
+  public listCategory: any;
 
-  constructor() { }
+  constructor(private blogService: BlogService) { }
 
   ngOnInit() {
+    this.blogService.getListCategory().subscribe(res => {
+      this.listCategory = res;
+    })
   }
 
 }

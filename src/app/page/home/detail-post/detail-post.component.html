@@ -1,5 +1,5 @@
 <div class="body-about"><div *ngIf="post">
-  <div  [innerHTML]="(post.title)"></div>
+  <div  [innerHTML]="post.title"></div>
   <div class="bottom">
     <small class="firstsmall text-bot" *ngIf="listCategory">
       <a class="bg-orange"
@@ -10,7 +10,7 @@
     <small class="text-bot" style="display: flex;"><div style="margin-top: 2px;
         margin-right: 3px;"><i class="pi pi-eye"></i></div><div><span>{{post.view}}</span></div></small>
   </div>
-  <div  [innerHTML]="(post.header)"></div>
-  <div  [innerHTML]="(post.body)"></div>
+  <div  [innerHTML]="post.header"></div>
+  <div  [innerHTML]="post.body | safeHtml"></div>
 </div>
 </div>

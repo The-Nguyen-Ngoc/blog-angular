@@ -17,15 +17,42 @@ export class CreatePostComponent implements OnInit {
 
  editorConfig: AngularEditorConfig = {
   editable: true,
-  spellcheck: false,
+  spellcheck: true,
   height: 'auto',
-  minHeight: '150px',
-  maxHeight: '500px',
+  minHeight: '0',
+  maxHeight: 'auto',
   width: 'auto',
-  minWidth: '50%',
+  minWidth: '0',
+  translate: 'yes',
   enableToolbar: true,
   showToolbar: true,
   placeholder: 'Enter text here...',
+  defaultParagraphSeparator: '',
+  defaultFontName: '',
+  defaultFontSize: '',
+  fonts: [
+    { class: 'arial', name: 'Arial' },
+    { class: 'times-new-roman', name: 'Times New Roman' },
+    { class: 'calibri', name: 'Calibri' },
+    { class: 'comic-sans-ms', name: 'Comic Sans MS' }
+  ],
+  customClasses: [
+    {
+      name: 'quote',
+      class: 'quote',
+    },
+    {
+      name: 'redText',
+      class: 'redText'
+    },
+    {
+      name: 'titleText',
+      class: 'titleText',
+      tag: 'h1',
+    },
+  ],
+  uploadUrl: 'v1/image',
+  sanitize: false
 };
   constructor(private blogService: BlogService, private sanitizer: DomSanitizer) { }
 
@@ -38,13 +65,13 @@ export class CreatePostComponent implements OnInit {
 
   savePost(){
     let body = {
-      title: this.sanitizer.bypassSecurityTrustHtml(this.title,).toString(),
-      header: this.sanitizer.bypassSecurityTrustHtml(this.header).toString(),
-      body: this.sanitizer.bypassSecurityTrustHtml(this.body).toString(),
+      title: this.title,
+      header: this.header,
+      body: this.body,
       categoryId: this.selectedOption,
       userCreate: this.userCreate
     }
-    console.log(this.sanitizer.bypassSecurityTrustHtml(this.body).toString());
+    console.log((this.body).toString());
     
     this.blogService.postPost(body).subscribe(res=>{
       if(res){

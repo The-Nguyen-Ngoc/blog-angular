@@ -24,8 +24,10 @@ import { RecentNewComponent } from './page/home/recent-new/recent-new.component'
 import { FollowComponent } from './page/home/follow/follow.component';
 import { CreatePostComponent } from './page/create-post/create-post.component';
 import { DetailPostComponent } from './page/home/detail-post/detail-post.component';
+import { CategoryPostComponent } from './page/posts/category-post/category-post.component';
 
 import { DatePipe } from '@angular/common';
+import { SafeHtmlPipe } from './pipe/safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { DatePipe } from '@angular/common';
     RecentNewComponent,
     FollowComponent,
     CreatePostComponent,
-    DetailPostComponent
+    DetailPostComponent,
+    CategoryPostComponent,
+    SafeHtmlPipe
   ],
   imports: [
     HttpClientModule,

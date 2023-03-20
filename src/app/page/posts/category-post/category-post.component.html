@@ -1,0 +1,6 @@
+<div class="body-about">
+  <div *ngIf="listRecent">
+    <h2>Danh mục: {{categoryName}}</h2>
+    <app-recent-new [deviceInfo]="deviceInfo" [listCategory]="listCategory" *ngFor="let recent of listRecent"[recent]="recent" ></app-recent-new>
+  </div>
+</div>

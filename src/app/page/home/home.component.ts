@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   public pageSize = 5;
   public totalPage = 0;
   public totalE = 0;
- public listCategory: any;
+  public listCategory: any;
 
   constructor(private deviceService: DeviceDetectorService, private blogService: BlogService, private router: Router,
     private route: ActivatedRoute,) { }

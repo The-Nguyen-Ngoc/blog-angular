@@ -1,3 +1,5 @@
-<div style="margin-top: 200px;">
-  post
+<div class="body-about">
+  <h2>Danh mục bài viết:</h2>
+  <div *ngFor="let category of listCategory">
+    <a [routerLink]="['/posts/', category.id]">{{category.name}}</a></div>
 </div>

@@ -12,15 +12,15 @@
   <br>
   <br>
   <h3>Tiêu Đề</h3>
-  <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="title"></angular-editor>
+  <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig" [(ngModel)]="title"></angular-editor>
   <br>
   <br>
   <h3>Mở đầu</h3>
-  <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="header"></angular-editor>
+  <angular-editor [placeholder]="'Enter text here...'"  [config]="editorConfig" [(ngModel)]="header"></angular-editor>
   <br>
   <br>
   <h3>Thân bài</h3>
-  <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="body"></angular-editor>
+  <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig" [(ngModel)]="body"></angular-editor>
   <br>
   <br>
   <p-button type="button" label="Submit" (click)="savePost()"></p-button>
