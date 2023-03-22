@@ -51,7 +51,7 @@ export class CreatePostComponent implements OnInit {
       tag: 'h1',
     },
   ],
-  uploadUrl: 'v1/image',
+  // uploadUrl: 'api/v1/blogs/image',
   sanitize: false
 };
   constructor(private blogService: BlogService, private sanitizer: DomSanitizer) { }

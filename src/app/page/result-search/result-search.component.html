@@ -1,0 +1,12 @@
+<div class="body-about" style="min-height: 70vh;">
+  <h1>Kết quả tìm kiếm</h1>
+  <br>
+  <div *ngIf="listCategory">
+    <h3>Danh mục</h3>
+    <div *ngFor="let category of listCategory" class="category-t">
+      <a [routerLink]="['/posts/', category.id, 1]">{{category.name}}</a></div>
+  </div>
+  <div>
+    <h3>Bài viết</h3>
+  </div>
+</div>

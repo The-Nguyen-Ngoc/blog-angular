@@ -1,0 +1,21 @@
+<div class="widget">
+  <h2 class="widget-title">Bài viết phổ biến</h2>
+  <div class="blog-list-widget">
+    <div class="list-group" *ngFor="let popularRecent of listPopularRecent">
+      <a [routerLink]="['/detail-post/', popularRecent.id]" class="list-group-item
+        list-group-item-action flex-column align-items-start">
+        <div class="w-100 justify-content-between">
+          <!-- <h5 class="mb-1">{{popularRecent.title}}.</h5> -->
+          <div [innerHTML]="popularRecent.title"></div>
+          <div style="display: flex;
+          justify-content: inherit;">
+          <small>{{formatDate(popularRecent.dateCreate)}}</small>
+          <!-- <small>{{popularRecent.view}}</small> -->
+          <small class="text-bot" style="display: flex;"><div style="margin-top: 2px;
+            margin-right: 3px;"><i class="pi pi-eye"></i></div><div><span>{{popularRecent.view}}</span></div></small>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div><!-- end blog-list -->
+</div><!-- end widget -->

@@ -12,6 +12,8 @@ export class DetailPostComponent implements OnInit {
   public post : any
   public idPost = '';
  public listCategory: any;
+ public callApi = true;
+
 
   constructor(private router: Router,
     private route: ActivatedRoute, private datePipe: DatePipe, private blogService: BlogService, private sanitizer: DomSanitizer) { }
@@ -22,9 +24,14 @@ export class DetailPostComponent implements OnInit {
     })
     this.route.params.subscribe(params => {
       if(params && params['id']){
+        this.callApi = true;
         this.blogService.getDetailBlogById(params['id']).subscribe(res =>{
           if(res){
             this.post = res;
+            setTimeout(() => {
+              this.callApi = false;
+    
+            }, 200);
           }
           
         })

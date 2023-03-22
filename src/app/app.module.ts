@@ -10,6 +10,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,9 @@ import { FollowComponent } from './page/home/follow/follow.component';
 import { CreatePostComponent } from './page/create-post/create-post.component';
 import { DetailPostComponent } from './page/home/detail-post/detail-post.component';
 import { CategoryPostComponent } from './page/posts/category-post/category-post.component';
+import { PopularComponent } from './page/home/popular/popular.component';
+import { ResultSearchComponent } from './page/result-search/result-search.component';
+
 
 import { DatePipe } from '@angular/common';
 import { SafeHtmlPipe } from './pipe/safe-html.pipe';
@@ -44,6 +48,8 @@ import { SafeHtmlPipe } from './pipe/safe-html.pipe';
     CreatePostComponent,
     DetailPostComponent,
     CategoryPostComponent,
+    PopularComponent,
+    ResultSearchComponent,
     SafeHtmlPipe
   ],
   imports: [
@@ -57,7 +63,8 @@ import { SafeHtmlPipe } from './pipe/safe-html.pipe';
     InputTextModule,
     ButtonModule,
     FontAwesomeModule,
-    AngularEditorModule
+    AngularEditorModule,
+    ProgressSpinnerModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

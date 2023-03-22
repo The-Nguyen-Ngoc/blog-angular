@@ -8,6 +8,7 @@ import { AboutComponent } from './page/about/about.component';
 import { CreatePostComponent } from './page/create-post/create-post.component';
 import { DetailPostComponent } from './page/home/detail-post/detail-post.component';
 import { CategoryPostComponent } from './page/posts/category-post/category-post.component';
+import { ResultSearchComponent } from './page/result-search/result-search.component';
 
 //Khai báo một constant chứa các route của app
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent , pathMatch: 'full'},
   { path: 'course', component: CreatePostComponent },
   { path: 'posts', component: PostsComponent },
-  { path: 'posts/:id', component: CategoryPostComponent },
+  { path: 'search', component: ResultSearchComponent },
+  { path: 'posts/:id/:page', component: CategoryPostComponent },
   { path: 'detail-post/:id', component: DetailPostComponent },
   { path: 'about', component: AboutComponent },
 ];

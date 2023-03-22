@@ -4319,9 +4319,6 @@ tbody.collapse.show {
   border-radius: 0.25rem;
 }
 
-.custom-file-control:lang(en)::after {
-  content: "Choose file...";
-}
 
 .custom-file-control::before {
   position: absolute;
@@ -4337,10 +4334,6 @@ tbody.collapse.show {
   background-color: #eceeef;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0 0.25rem 0.25rem 0;
-}
-
-.custom-file-control:lang(en)::before {
-  content: "Browse";
 }
 
 .nav {

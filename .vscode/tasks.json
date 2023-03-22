@@ -5,7 +5,7 @@
     {
       "label": "build-dev",
       "type": "shell",
-      "command": "env ng build --base-href=/blog/ --watch --output-path=dist/blog-angular",
+      "command": "env ng build --base-href=/blog/ --watch --output-path=dist/blog",
       "group": "build",
       "problemMatcher": [
           "$msCompile"

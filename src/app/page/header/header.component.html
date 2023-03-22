@@ -1,60 +1,61 @@
 <div class="menu-bar">
-  <nav>
-      <div class="logo" *ngIf="deviceInfo.deviceType == 'desktop'">
-          <a href="/ecommer/home">
-              <img src="assets/img/logo-web.png" height="59px"
-                  style="border-radius: 30px;" />
-          </a>
-      </div>
-      <ul *ngIf="deviceInfo.deviceType == 'desktop'">
-          <li *ngFor="let item of navs"><a [routerLinkActive]="['active-nav']"
-                  [routerLink]="[item.link]"><i></i>&ensp;{{item.name}}</a></li>
-          <div>
-              <span class="p-input-icon-left">
-                  <input type="text" pInputText [(ngModel)]="textSearch"
-                      placeholder="Search">
-                  <i class="pi pi-search"></i>
-              </span>
-          </div>
-      </ul>
-      <div *ngIf="deviceInfo.deviceType == 'mobile'">
-          <div class="mobile">
-              <div class="logo-mobile">
-                  <a href="/ecommer/home">
-                      <img src="assets/img/logo-web.png" style="height:
-                          70px;border-radius: 30px;" />
-                  </a>
-              </div>
-              <div class="search-mobile">
-                  <span class="p-input-icon-left">
-                    <i class="pi pi-search"></i>
-                      <input style="width: 150px;" type="text" pInputText
-                          [(ngModel)]="textSearch" placeholder="Search">
-                  </span>
-                  <div class="side-bar-mobile">
-                      <p-sidebar [(visible)]="displayMenuMobile"
-                          position="top" class="side-bar-show">
-                          <div>
-                              <div class="item-nav-mb" *ngFor="let item of
-                                  navs"><a [routerLinkActive]="['active-nav']"
-                                      (click)="showHideMenuMobile()"
-                                      [routerLink]="[item.link]"><i
-                                          ></i>&ensp;{{item.name}}</a></div>
-                          </div>
-                      </p-sidebar>
+        <div class="logo" *ngIf="deviceInfo.deviceType == 'desktop'"
+            style="left: 10vw">
+            <a href="/blog/home">
+                <img src="assets/img/download.png" height="59px"
+                    style="border-radius: 20px;" />
+            </a>
+        </div>
+    <nav>
 
-                      <i (click)="showHideMenuMobile()" class="pi
-                          pi-align-justify" style=" color: red;
-                          padding: 3px;
-                          background: beige;
-                          border-radius: 3px;"></i>
-                  </div>
-              </div>
+        <ul *ngIf="deviceInfo.deviceType == 'desktop'">
+            <li *ngFor="let item of navs"><a [routerLinkActive]="['active-nav']"
+                    [routerLink]="[item.link]"><i></i>&ensp;{{item.name}}</a></li>
+            <div>
+                <span class="p-input-icon-left">
+                    <input type="text" pInputText [(ngModel)]="textSearch"
+                        placeholder="Search">
+                    <i class="pi pi-search search-icon" style="cursor: pointer;" [routerLink]="'search'" [queryParams]="{ keyword: textSearch }"></i>
+                </span>
+            </div>
+        </ul>
+        <div *ngIf="deviceInfo.deviceType == 'mobile'">
+            <div class="mobile">
+                <div class="logo-mobile">
+                    <a href="/blog/home">
+                        <img src="assets/img/download.png" style="height:
+                            70px;border-radius: 20px;" />
+                    </a>
+                </div>
+                <div class="search-mobile">
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-search"></i>
+                        <input style="width: 150px;" type="text" pInputText
+                            [(ngModel)]="textSearch" placeholder="Search">
+                    </span>
+                    <div class="side-bar-mobile">
+                        <p-sidebar [(visible)]="displayMenuMobile"
+                            position="top" class="side-bar-show">
+                            <div>
+                                <div class="item-nav-mb" *ngFor="let item of
+                                    navs"><a [routerLinkActive]="['active-nav']"
+                                        (click)="showHideMenuMobile()"
+                                        [routerLink]="[item.link]"><i></i>&ensp;{{item.name}}</a></div>
+                            </div>
+                        </p-sidebar>
+
+                        <i (click)="showHideMenuMobile()" class="pi
+                            pi-align-justify" style=" color: red;
+                            padding: 3px;
+                            background: beige;
+                            border-radius: 3px;"></i>
+                    </div>
+                </div>
 
 
 
-          </div>
+            </div>
 
-      </div>
-  </nav>
+        </div>
+    </nav>
 </div>

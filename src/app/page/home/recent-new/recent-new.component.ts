@@ -18,7 +18,7 @@ export class RecentNewComponent implements OnInit {
     
   }
   formatDate(value: string){
-    return this.datePipe.transform(value, 'dd/MM/yyyy')
+    return this.datePipe.transform(value, 'dd \'tháng\' MM\',\' yyyy')
   }
   convertNameCategory(idCategory: number){
     const user = this.listCategory.find((u: { id: number; }) => u.id === idCategory);

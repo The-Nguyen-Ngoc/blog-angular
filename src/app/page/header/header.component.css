@@ -10,6 +10,9 @@
   width: 100%;
   z-index: 100;
 }
+.search-icon:hover{
+  color: #d95252;
+}
 ::ng-deep .p-component-overlay{
   z-index: -1 !important;
 }
@@ -46,10 +49,23 @@
 }
 
 .menu-bar li a:hover {
-  background-color: SandyBrown;
-  border-radius: 8px;
-}
+  /* background-color: SandyBrown;
+  border-radius: px; */
+  color: #d95252 !important;
 
+}
+/* Định nghĩa keyframes */
+@keyframes move {
+  0% {
+    transform: translateX(0%);
+
+  }
+  100% {
+    transform: translateX(25vw);
+    transform: rotate(180deg);
+  }
+  
+}
 .logo {
   border-radius: 10px;
   top: 2px;
@@ -57,12 +73,16 @@
   left: 0%;
   position: absolute;
   height: 59px;
+  animation-name: move;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
 
 .active-nav {
   /* background-color: SandyBrown; */
   /* border-radius: 8px; */
-  color: #c26d6d !important;
+  color: #d95252 !important;
 }
 
 @media (max-width: 420px) {

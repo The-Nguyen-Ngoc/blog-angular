@@ -1,5 +1,8 @@
-<div class="body-about">
+<div class="body-about" style="min-height: 675px;" *ngIf="!callApi">
   <h2>Danh mục bài viết:</h2>
-  <div *ngFor="let category of listCategory">
-    <a [routerLink]="['/posts/', category.id]">{{category.name}}</a></div>
+  <div *ngFor="let category of listCategory" class="category-t">
+    <a [routerLink]="['/posts/', category.id, 1]">{{category.name}}</a></div>
+</div>
+<div class="body-about" style="min-height: 645px;text-align: center;" *ngIf="callApi">
+  <p-progressSpinner ></p-progressSpinner>
 </div>

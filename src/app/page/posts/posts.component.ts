@@ -8,12 +8,18 @@ import { BlogService } from 'src/app/service/blog.service';
 })
 export class PostsComponent implements OnInit {
   public listCategory: any;
+  public callApi = true;
 
   constructor(private blogService: BlogService) { }
 
   ngOnInit() {
     this.blogService.getListCategory().subscribe(res => {
-      this.listCategory = res;
+      if (res) {
+        this.listCategory = res;
+        setTimeout(() => {
+          this.callApi = false;
+        }, 200);
+      }
     })
   }
 
