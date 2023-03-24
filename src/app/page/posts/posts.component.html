@@ -1,8 +1,21 @@
 <div class="body-about" style="min-height: 675px;" *ngIf="!callApi">
   <h2>Danh mục bài viết:</h2>
-  <div *ngFor="let category of listCategory" class="category-t">
-    <a [routerLink]="['/posts/', category.id, 1]">{{category.name}}</a></div>
+  <!-- <div *ngFor="let category of listCategory" class="category-t">
+    <a [routerLink]="['/posts/', category.id, 1]">{{category.name}}</a>
+  </div> -->
+  <div *ngFor="let category of listCategory">
+    <span class="title-span" style="cursor: pointer;" (click)="toggleChildren(category)">
+      <i class="pi pi-sort-down" *ngIf="category.showChildren"></i>
+      <i class="pi pi-caret-right" *ngIf="!category.showChildren"></i>
+       {{ category.name }}</span>
+    <ul *ngIf="category.showChildren">
+        <li *ngFor="let child of
+          category.childrenCategory"><a [routerLink]="['/posts/', child.id, 1]">{{ child.name }}</a></li>
+      
+    </ul>
+  </div>
 </div>
-<div class="body-about" style="min-height: 645px;text-align: center;" *ngIf="callApi">
-  <p-progressSpinner ></p-progressSpinner>
+<div class="body-about" style="min-height: 645px;text-align: center;"
+  *ngIf="callApi">
+  <p-progressSpinner></p-progressSpinner>
 </div>

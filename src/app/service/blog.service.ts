@@ -11,7 +11,9 @@ export class BlogService {
   private API_GET_POST_BY_CATEGORY_ID = 'api/v1/blogs/posts/';
   private API_GET_DETAIL_BLOG = 'api/v1/blogs/detail-post/';
   private API_GET_5_POPULAR = 'api/v1/blogs/popular';
+  private API_SEARCH_ALL = 'api/v1/blogs/search';
   private GET_LIST_CATEGORY = 'api/v1/category';
+  private GET_LIST_CATEGORY_PARENT = 'api/v1/category/parent';
 
   constructor(private http: HttpClient) {
 
@@ -28,6 +30,9 @@ export class BlogService {
   getListCategory(): Observable<any> {
      return this.http.get(this.GET_LIST_CATEGORY);
   }
+  getListCategoryParent(): Observable<any> {
+     return this.http.get(this.GET_LIST_CATEGORY_PARENT);
+  }
   getDetailBlogById(id:any): Observable<any> {
      return this.http.get(this.API_GET_DETAIL_BLOG + id);
   }
@@ -36,6 +41,12 @@ export class BlogService {
   }
   getList5Popular(): Observable<any> {
      return this.http.get(this.API_GET_5_POPULAR );
+  }
+  searchAll(keyword: string): Observable<any> {
+    const params = {
+      keyword: keyword.toString().trim()
+    };
+     return this.http.get(this.API_SEARCH_ALL, {params} );
   }
 
   postPost(body: any): Observable<any>{
