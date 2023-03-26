@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -27,8 +28,11 @@ export class HeaderComponent implements OnInit {
       link: 'about',
     },
   ]
-  constructor(private deviceService: DeviceDetectorService) { }
+  constructor(private deviceService: DeviceDetectorService, private router: Router) { }
 
+  navigateResultSearch(){
+    this.router.navigate(['search'], { queryParams: {keyword: this.textSearch}});
+  }
   ngOnInit() {
     this.deviceInfo = this.deviceService.getDeviceInfo();
   }

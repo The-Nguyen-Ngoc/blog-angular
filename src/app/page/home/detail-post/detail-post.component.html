@@ -1,10 +1,13 @@
 <div class="body-about">
-  <div  style="min-height: 75vh;" [style.text-align]="callApi ? 'center' : ''">
-    <div *ngIf="!callApi" >
+  <p-breadcrumb [model]="items"></p-breadcrumb>
+  <br>
+
+  <div style="min-height: 75vh;" [style.text-align]="callApi ? 'center' : ''">
+    <div *ngIf="!callApi">
       <div [innerHTML]="post.title"></div>
       <div class="bottom">
-        <small class="firstsmall text-bot" *ngIf="listCategory">
-          <a class="bg-orange"
+        <small class="firstsmall text-bot highlight" *ngIf="listCategory">
+          <a class=""
             title="">{{convertNameCategory(post.categoryId)}}</a>
         </small>
         <small class="text-bot"><a title="">{{formatDate(post.dateCreate)}}</a></small>
@@ -13,7 +16,7 @@
             2px;
             margin-right: 3px;"><i class="pi pi-eye"></i></div><div><span>{{post.view}}</span></div></small>
       </div>
-      <div [innerHTML]="post.header"></div>
+      <div style=" margin-top: 15px;" [innerHTML]="post.header"></div>
       <div [innerHTML]="post.body | safeHtml"></div>
     </div>
     <p-progressSpinner *ngIf="callApi"></p-progressSpinner>

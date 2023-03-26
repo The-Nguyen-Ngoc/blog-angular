@@ -10,6 +10,7 @@ export class RecentNewComponent implements OnInit {
   @Input() deviceInfo: any;
   @Input() recent: any;
   @Input() listCategory: any;
+  @Input() searchTerm: any;
 
 
   constructor(private datePipe: DatePipe, private blogService: BlogService) { }

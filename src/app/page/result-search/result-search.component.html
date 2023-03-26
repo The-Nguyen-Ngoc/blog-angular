@@ -1,12 +1,17 @@
-<div class="body-about" style="min-height: 70vh;">
-  <h1>Kết quả tìm kiếm</h1>
-  <br>
-  <div *ngIf="listCategory">
-    <h3>Danh mục</h3>
-    <div *ngFor="let category of listCategory" class="category-t">
-      <a [routerLink]="['/posts/', category.id, 1]">{{category.name}}</a></div>
+<div class="body-about" style="min-height: 70vh;" [style.text-align]="callApi ? 'center' : ''">
+  <p-breadcrumb [model]="items"></p-breadcrumb>
+
+  <div *ngIf="!callApi">
+    <br>
+    <div *ngIf="listRecent">
+        <app-recent-new [deviceInfo]="deviceInfo"
+                  [listCategory]="listCategory" *ngFor="let recent of
+                  listRecent"[recent]="recent" [searchTerm]="searchTerm"></app-recent-new>
+    </div>
+    <div *ngIf="!listRecent">
+      <h2 style="color: #bf1010; text-align: center;">Không có kết quả tìm kiếm!</h2>
+    </div>
   </div>
-  <div>
-    <h3>Bài viết</h3>
-  </div>
+  <p-progressSpinner sty *ngIf="callApi"></p-progressSpinner>
+
 </div>

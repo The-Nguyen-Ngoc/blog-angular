@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 import { BlogService } from 'src/app/service/blog.service';
 
 @Component({
@@ -9,10 +10,15 @@ import { BlogService } from 'src/app/service/blog.service';
 export class PostsComponent implements OnInit {
   public listCategory: any;
   public callApi = true;
+  public items: MenuItem[] = [];
 
   constructor(private blogService: BlogService) { }
 
   ngOnInit() {
+    this.items = [
+      {label:'Trang chủ', url: 'home'},
+      {label:'Bài viết' }
+  ];
     this.blogService.getListCategoryParent().subscribe(res => {
       if (res) {
         this.listCategory = res;

@@ -1,6 +1,9 @@
 <div class="body-about" [style.text-align]="callApi ? 'center' : ''">
+  <p-breadcrumb [model]="items"></p-breadcrumb>
+  <br>
+
   <div class="blog-list clearfix" *ngIf="listRecent && !callApi">
-    <span class="text-a">Danh mục: </span><span class="text-a" style="color: brown;">{{categoryName}}</span>
+    <span class="text-a"></span><span class="text-a" style="color: brown;">{{categoryName}}</span>
     <br>
     <br>
     <app-recent-new [deviceInfo]="deviceInfo" [listCategory]="listCategory" *ngFor="let recent of listRecent"[recent]="recent" ></app-recent-new>

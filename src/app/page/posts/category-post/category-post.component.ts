@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { MenuItem } from 'primeng/api';
 import { BlogService } from 'src/app/service/blog.service';
 
 @Component({
@@ -19,10 +20,13 @@ export class CategoryPostComponent implements OnInit {
   public totalPage = 0;
   public totalE = 0;
   public callApi = true;
+ public items: MenuItem[] = [];
+
 
   constructor(private router: Router, private route: ActivatedRoute, private blogService: BlogService, private deviceService: DeviceDetectorService) { }
 
   ngOnInit() {
+    
     this.deviceInfo = this.deviceService.getDeviceInfo();
 
     this.route.params.subscribe(params => {
@@ -36,6 +40,10 @@ export class CategoryPostComponent implements OnInit {
           this.listCategory.forEach((i: { id: any; name: string; }) => {
             if (i.id == id) {
               this.categoryName = i.name
+              this.items = [
+                {label:'Trang chủ', url: 'home'},
+                {label:'Bài viết', url: 'posts' },
+                {label:this.categoryName}]
             }
 
           })

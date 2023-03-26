@@ -131,7 +131,9 @@ h5 {
   padding: 1rem !important;
   border: 1px solid #e2e2e2;
 }
-
+/* mark{
+  color: yellow;
+} */
 .blog-top .fa {
   font-size: 18px !important;
   line-height: 1 !important;
@@ -141,7 +143,7 @@ h5 {
 .blog-meta small a,
 .blog-meta small {
   font-weight: 500;
-  color: #999 !important;
+  /* color: #999 !important; */
 }
 
 .fa-star {
@@ -619,7 +621,7 @@ dfn {
 
 mark {
   background-color: #ff0;
-  color: #000;
+  /* color: #000; */
 }
 
 small {
@@ -1135,8 +1137,8 @@ small,
 
 mark,
 .mark {
-  padding: 0.2em;
-  background-color: #fcf8e3;
+  /* padding: 0.2em;
+  background-color: #fcf8e3; */
 }
 
 .list-unstyled {

@@ -10,9 +10,9 @@
   width: 100%;
   z-index: 100;
 }
-.search-icon:hover{
+/* .search-icon:hover{
   color: #d95252;
-}
+} */
 ::ng-deep .p-component-overlay{
   z-index: -1 !important;
 }
@@ -51,7 +51,7 @@
 .menu-bar li a:hover {
   /* background-color: SandyBrown;
   border-radius: px; */
-  color: #d95252 !important;
+  color: #f8cd26 !important;
 
 }
 /* Định nghĩa keyframes */
@@ -82,7 +82,7 @@
 .active-nav {
   /* background-color: SandyBrown; */
   /* border-radius: 8px; */
-  color: #d95252 !important;
+  color: #f8cd26 !important;
 }
 
 @media (max-width: 420px) {

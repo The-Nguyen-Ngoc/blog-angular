@@ -11,6 +11,7 @@ import {ButtonModule} from 'primeng/button';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import {BreadcrumbModule} from 'primeng/breadcrumb';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +33,7 @@ import { ResultSearchComponent } from './page/result-search/result-search.compon
 
 import { DatePipe } from '@angular/common';
 import { SafeHtmlPipe } from './pipe/safe-html.pipe';
+import { HighlightPipe } from './pipe/highlight.pipe';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { SafeHtmlPipe } from './pipe/safe-html.pipe';
     CategoryPostComponent,
     PopularComponent,
     ResultSearchComponent,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    HighlightPipe
   ],
   imports: [
     HttpClientModule,
@@ -64,7 +67,8 @@ import { SafeHtmlPipe } from './pipe/safe-html.pipe';
     ButtonModule,
     FontAwesomeModule,
     AngularEditorModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    BreadcrumbModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

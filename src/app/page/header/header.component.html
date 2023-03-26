@@ -14,8 +14,9 @@
             <div>
                 <span class="p-input-icon-left">
                     <input type="text" pInputText [(ngModel)]="textSearch"
-                        placeholder="Search">
-                    <i class="pi pi-search search-icon" style="cursor: pointer;" [routerLink]="'search'" [queryParams]="{ keyword: textSearch }"></i>
+                        placeholder="Search" maxlength="50" (keyup.enter)="navigateResultSearch()">
+                    <i *ngIf="textSearch" [style.color]="textSearch ? 'red' : ''" class="pi pi-search search-icon" style="cursor: pointer;" [routerLink]="'search'" [queryParams]="{ keyword: textSearch }"></i>
+                    <i *ngIf="!textSearch"  class="pi pi-search search-icon"></i>
                 </span>
             </div>
         </ul>

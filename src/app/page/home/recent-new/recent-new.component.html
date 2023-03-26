@@ -1,15 +1,22 @@
 <div class="blog-box row">
   <div class="blog-meta big-meta col-md-12">
-    <a [routerLink]="['/detail-post/', recent.id]"><div [innerHTML]="recent.title"></div></a>
-      <div style="color: black;" [innerHTML]="recent.header"></div>
+    <a [routerLink]="['/detail-post/', recent.id]">
+      <div *ngIf="searchTerm" [innerHTML]="recent.title| highlight: searchTerm"></div>
+      <div *ngIf="!searchTerm" [innerHTML]="recent.title"></div>
+      </a>
+    <div *ngIf="searchTerm" style="color: black;" [innerHTML]="recent.header | highlight: searchTerm"></div>
+    <div *ngIf="!searchTerm" style="color: black;" [innerHTML]="recent.header"></div>
     <div class="bottom">
-      <small class="firstsmall text-bot">
-        <a class="bg-orange" [routerLink]="['/posts/', recent.categoryId, 1]" style="padding: 3px;font-size: 12px;"
+      <small class="firstsmall text-bot highlight">
+        <a class="" [routerLink]="['/posts/', recent.categoryId, 1]"
+          style="padding: 3px;font-size: 12px; color: #fff;"
           title="">{{convertNameCategory(recent.categoryId)}}</a>
       </small>
-      <small class="text-bot" style="font-size: 12px;"><a title="">{{formatDate(recent.dateCreate)}}</a></small>
-      <small class="text-bot" style="font-size: 12px;"><a title="">Create by: {{recent.userCreate}}</a></small>
-      <small class="text-bot" style="display: flex;"><div style="margin-top: 2px;
+      <small class="text-bot" style="font-size: 12px;">{{formatDate(recent.dateCreate)}}</small>
+      <small class="text-bot" style="font-size: 12px;">Creator:
+          {{recent.userCreate}}</small>
+      <small class="text-bot" style="display: flex;"><div style="margin-top:
+          2px;
           margin-right: 3px;"><i class="pi pi-eye"></i></div><div><span>{{recent.view}}</span></div></small>
     </div>
   </div><!-- end meta -->
