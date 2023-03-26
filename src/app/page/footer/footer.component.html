@@ -16,9 +16,9 @@
                             <form class="form-inline">
                                 <input type="email" class="form-control"
                                     placeholder="Enter your email" [(ngModel)]="email">
-                                <button type="submit" class="btn btn-primary">SUBMIT</button>
+                                <button type="submit" [disabled]="!isValidEmail(email) || disableButton" style="cursor: pointer;" class="btn btn-primary" (click)="submit()">SUBMIT</button>
                             </form>
-                            
+                            <p-toast position="top-left"></p-toast>
                         </div><!-- end newsletter -->
                     </div><!-- end footer-text -->
                 </div><!-- end widget -->

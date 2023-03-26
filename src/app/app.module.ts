@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import {SidebarModule} from 'primeng/sidebar';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {MenubarModule} from 'primeng/menubar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {InputTextModule} from 'primeng/inputtext';
@@ -12,6 +12,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
+import {ToastModule} from 'primeng/toast';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,7 +31,7 @@ import { CategoryPostComponent } from './page/posts/category-post/category-post.
 import { PopularComponent } from './page/home/popular/popular.component';
 import { ResultSearchComponent } from './page/result-search/result-search.component';
 
-
+import { MessageService } from 'primeng/api';
 import { DatePipe } from '@angular/common';
 import { SafeHtmlPipe } from './pipe/safe-html.pipe';
 import { HighlightPipe } from './pipe/highlight.pipe';
@@ -68,9 +69,11 @@ import { HighlightPipe } from './pipe/highlight.pipe';
     FontAwesomeModule,
     AngularEditorModule,
     ProgressSpinnerModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    ReactiveFormsModule,
+    ToastModule
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

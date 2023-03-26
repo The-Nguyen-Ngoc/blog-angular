@@ -12,6 +12,7 @@ export class BlogService {
   private API_GET_DETAIL_BLOG = 'api/v1/blogs/detail-post/';
   private API_GET_5_POPULAR = 'api/v1/blogs/popular';
   private API_SEARCH_ALL = 'api/v1/blogs/search';
+  private API_SEND_MAIL = 'api/v1/blogs/email';
   private GET_LIST_CATEGORY = 'api/v1/category';
   private GET_LIST_CATEGORY_PARENT = 'api/v1/category/parent';
 
@@ -51,5 +52,8 @@ export class BlogService {
 
   postPost(body: any): Observable<any>{
     return this.http.post(this.API_BLOG, body);
+  }
+  sendMail(body: any): Observable<any>{
+    return this.http.post(this.API_SEND_MAIL, body);
   }
 }
