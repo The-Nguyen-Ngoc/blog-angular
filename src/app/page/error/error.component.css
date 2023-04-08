@@ -1,0 +1,17 @@
+.body-about{
+  margin-top: 90px;
+  margin-left: 350px;
+  margin-right: 350px;
+  margin-bottom: 30px;
+}
+span {
+  font-size: 20px;
+}
+
+@media (max-width:420px) {
+  .body-about{
+    margin-top: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}

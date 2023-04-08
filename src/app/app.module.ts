@@ -30,6 +30,7 @@ import { DetailPostComponent } from './page/home/detail-post/detail-post.compone
 import { CategoryPostComponent } from './page/posts/category-post/category-post.component';
 import { PopularComponent } from './page/home/popular/popular.component';
 import { ResultSearchComponent } from './page/result-search/result-search.component';
+import { ErrorComponent } from './page/error/error.component';
 
 import { MessageService } from 'primeng/api';
 import { DatePipe } from '@angular/common';
@@ -53,6 +54,7 @@ import { HighlightPipe } from './pipe/highlight.pipe';
     CategoryPostComponent,
     PopularComponent,
     ResultSearchComponent,
+    ErrorComponent,
     SafeHtmlPipe,
     HighlightPipe
   ],

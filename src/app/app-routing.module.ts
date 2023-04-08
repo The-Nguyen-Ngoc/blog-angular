@@ -9,6 +9,7 @@ import { CreatePostComponent } from './page/create-post/create-post.component';
 import { DetailPostComponent } from './page/home/detail-post/detail-post.component';
 import { CategoryPostComponent } from './page/posts/category-post/category-post.component';
 import { ResultSearchComponent } from './page/result-search/result-search.component';
+import { ErrorComponent } from './page/error/error.component';
 
 //Khai báo một constant chứa các route của app
 const routes: Routes = [
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path: 'posts/:id/:page', component: CategoryPostComponent },
   { path: 'detail-post/:id', component: DetailPostComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'error', component: ErrorComponent },
+  { path: '**', redirectTo: '/error' } // handle all other routes
 ];
 
 @NgModule({
